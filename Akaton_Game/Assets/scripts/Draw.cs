@@ -20,7 +20,8 @@ public class Draw : MonoBehaviour
     "The First and Second Intifadas were a series of violent attacks by Palestinian terrorists on Israeli civilians, including Bombing public transport and shooting Israeli babies.",
     "In 1947, the United Nations voted to partition Palestine into two states, one Arab and one Jewish. The Jewish leadership rejected the partition  and called for an all Jewish state.",
     "While negotiating Oslo agreements, Israel has refused to withdraw or give up any of its territories."};
-
+    public GameObject P1;
+    public GameObject P2;
     public void Start()
     {
         window.text = Qu[Qnum];
@@ -54,7 +55,11 @@ public class Draw : MonoBehaviour
     public void Show()
     {
         if (i == 0 && !correct) return;
-        if (i == 6 && correct) return;//win
+        if (i == 6 && correct)
+        {
+            P1.SetActive(true);
+            P2.SetActive(true);
+        }
         else
             if(correct)
         {
@@ -69,8 +74,15 @@ public class Draw : MonoBehaviour
             images[i].SetActive(true); ;
         }
         Qnum++;
-        if(Qnum < 8)
+        if (Qnum < 8)
+        {
             window.text = Qu[Qnum];
+        }
+        else
+        {
+            P1.SetActive(true);
+            P2.SetActive(true);
+        }
     }
 
 }

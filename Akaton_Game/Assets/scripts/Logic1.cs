@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Logic1 : MonoBehaviour
 {
+    public GameObject P1;
+    public GameObject P2;
     public void OnPlayCross()
     {
         SceneManager.LoadScene("Game1");
@@ -15,6 +17,8 @@ public class Logic1 : MonoBehaviour
     }
     public void OnPlayBack()
     {
+        P1.SetActive(false);
+        P2.SetActive(false);
         SceneManager.LoadScene("MainScreen");
     }
 
