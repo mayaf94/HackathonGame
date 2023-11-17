@@ -27,12 +27,15 @@ public class WordScript : MonoBehaviour
             Debug.Log(wordButtonsTexts[i].text.Length +" ,"+ wordButtons[i].name+ " ,"+ wordButtonsTexts[i].text);
             Debug.Log(wordButtons[i].name + " ," + wordToGuess[i]);
             if (wordButtonsTexts[i].text.Length == 1) return;
-            if (!wordButtonsTexts[i].text.ToUpper().Equals(wordToGuess.ToUpper()[i])) isOk = false;
+            Debug.Log(!(wordButtonsTexts[i].text.ToUpper()[0] == wordToGuess.ToUpper()[i]));
+            //Debug.Log(wordButtonsTexts[i].text.ToUpper()[0]);
+            if (!(wordButtonsTexts[i].text.ToUpper()[0] == wordToGuess.ToUpper()[i])) isOk = false;
         }
         if (isOk)
         {
             Debug.Log("OK");
             ColorButtons(rightColor, true);
+            return;
         }
         Debug.Log("BAD");
         ColorButtons(wrongColor, false);
