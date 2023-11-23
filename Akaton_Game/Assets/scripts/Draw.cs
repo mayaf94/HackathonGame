@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Draw : MonoBehaviour
@@ -25,15 +24,22 @@ public class Draw : MonoBehaviour
     public void Start()
     {
         window.text = Qu[Qnum];
+        for (int j = 0; j < 7; j++)
+        {
+            images[j].transform.localScale = Vector2.zero;
+        }
     }
+
     public void Fake()
     {
         if(answers[Qnum] == false)
         {
+            Debug.Log("true");
             correct = true;
         }
         else
         {
+            Debug.Log("false");
             correct = false;
         }
         Show();
@@ -43,10 +49,12 @@ public class Draw : MonoBehaviour
     {
         if (answers[Qnum] == true)
         {
+            Debug.Log("true");
             correct = true;
         }
         else
         {
+            Debug.Log("false");
             correct = false;
         }
         Show();
@@ -54,25 +62,29 @@ public class Draw : MonoBehaviour
 
     public void Show()
     {
-        if (i == 0 && !correct) return;
-        if (i == 6 && correct)
+        //if (i == 0 && !correct) return;
+        if (i == 6)
         {
             P1.SetActive(true);
             P2.SetActive(true);
         }
         else
-            if(correct)
+            if (correct)
         {
-            images[i].SetActive(false);
+            images[i].transform.LeanScale(Vector2.zero, 0.1f);
             i++;
-            images[i].SetActive(true);
+            images[i].LeanScale(Vector2.one, 0.8f);
         }
         else
         {
-            images[i].SetActive(false); ;
-            i--;
-            images[i].SetActive(true); ;
+            if (i != 0)
+            {
+                images[i].transform.LeanScale(Vector2.zero, 0.1f);
+                i--;
+                images[i].LeanScale(Vector2.one, 0.8f);
+            }
         }
+
         Qnum++;
         if (Qnum < 8)
         {
@@ -83,6 +95,8 @@ public class Draw : MonoBehaviour
             P1.SetActive(true);
             P2.SetActive(true);
         }
+
+        Debug.Log(Qnum);
     }
 
 }
