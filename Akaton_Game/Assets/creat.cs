@@ -19,7 +19,7 @@ public class CrosswordPuzzle : MonoBehaviour
     {
         int gridSize = 10; // Adjust the size of the grid as needed
         float buttonSize = 50f;
-        float spacing = 5f;
+        //float spacing = 5f;
 
         for (int i = 0; i < gridSize; i++)
         {
