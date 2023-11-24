@@ -19,8 +19,11 @@ public class Draw : MonoBehaviour
     "The First and Second Intifadas were a series of violent attacks by Palestinian terrorists on Israeli civilians, including Bombing public transport and shooting Israeli babies.",
     "In 1947, the United Nations voted to partition Palestine into two states, one Arab and one Jewish. The Jewish leadership rejected the partition  and called for an all Jewish state.",
     "While negotiating Oslo agreements, Israel has refused to withdraw or give up any of its territories."};
-    public GameObject P1;
-    public GameObject P2;
+
+    public Transform flag;
+    public CanvasGroup background;
+    public GameObject EndGameGroup;
+
     public void Start()
     {
         window.text = Qu[Qnum];
@@ -34,12 +37,10 @@ public class Draw : MonoBehaviour
     {
         if(answers[Qnum] == false)
         {
-            Debug.Log("true");
             correct = true;
         }
         else
         {
-            Debug.Log("false");
             correct = false;
         }
         Show();
@@ -49,12 +50,10 @@ public class Draw : MonoBehaviour
     {
         if (answers[Qnum] == true)
         {
-            Debug.Log("true");
             correct = true;
         }
         else
         {
-            Debug.Log("false");
             correct = false;
         }
         Show();
@@ -65,8 +64,8 @@ public class Draw : MonoBehaviour
         //if (i == 0 && !correct) return;
         if (i == 6)
         {
-            P1.SetActive(true);
-            P2.SetActive(true);
+            EndGameGroup.SetActive(true);
+            EndGame();
         }
         else
             if (correct)
@@ -92,11 +91,41 @@ public class Draw : MonoBehaviour
         }
         else
         {
-            P1.SetActive(true);
-            P2.SetActive(true);
+            EndGameGroup.SetActive(true);
+            EndGame();
         }
+    }
 
-        Debug.Log(Qnum);
+    public void EndGame()
+    {
+        background.alpha = 0;
+        background.LeanAlpha(1, 0.5f);
+
+        flag.localPosition = new Vector2(0, Screen.height);
+        flag.LeanMoveLocalY(600, 0.5f).setEaseOutExpo().delay = 0.1f;
+    }
+
+    public void CloseDialog()
+    {
+        background.LeanAlpha(0, 0.5f);
+        flag.LeanMoveLocalY(Screen.height, 0.5f).setEaseInExpo().setOnComplete(OnClose);
+        ResetGame();
+    }
+
+    void OnClose()
+    {
+        EndGameGroup.SetActive(false);
+    }
+
+    private void ResetGame()
+    {
+        i = 0;
+        Qnum = 0;
+        window.text = Qu[Qnum];
+        for (int j = 0; j < 7; j++)
+        {
+            images[j].transform.localScale = Vector2.zero;
+        }
     }
 
 }
