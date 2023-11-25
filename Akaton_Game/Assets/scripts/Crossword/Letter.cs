@@ -23,7 +23,7 @@ public class Letter : MonoBehaviour
     public void SetLetter(char letter)
     {
         _letter = letter;
-        letterText.SetText(letter.ToString());
+        letterText.SetText(letter.ToString());  //todo letterText is null 
     }
 
     public char GetLetter()
