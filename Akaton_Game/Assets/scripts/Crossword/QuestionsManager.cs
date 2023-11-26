@@ -57,19 +57,25 @@ public class QuestionsManager : MonoBehaviour
         }
         return true;
     }
-
+    
     private void Get2DLettersArray()
     {
         letters2DArray = new Letter[rows.Length][];
+    
         for (int i = 0; i < rows.Length; i++)
         {
             Letter[] lettersInRow = rows[i].GetComponentsInChildren<Letter>();
+        
+            // Initialize the inner array
+            letters2DArray[i] = new Letter[lettersInRow.Length];
+
             for (int j = 0; j < lettersInRow.Length; j++)
             {
                 letters2DArray[i][j] = lettersInRow[j];
             }
         }
     }
+
 
     public void ResetArray()
     {
