@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [Serializable] public class Word : MonoBehaviour
@@ -8,10 +9,20 @@ using UnityEngine;
      public List<Letter> letters;
 
      [SerializeField] private string expectedWord;
+
+     [SerializeField] private Color successColor;
      
      private int _currLetterIndex = 0;
 
      private bool wordCompleted;
+
+     private TextMeshProUGUI _buttonText;
+
+
+     private void Awake()
+     {
+          _buttonText = GetComponentInChildren<TextMeshProUGUI>();
+     }
 
      private void Start()
      {
@@ -26,9 +37,19 @@ using UnityEngine;
      {
           if(wordCompleted)
                return;
-          //todo add decoration to the marked button
+          if (QuestionsManager.Shared().currentWord != null && QuestionsManager.Shared().currentWord != this)
+          {
+               QuestionsManager.Shared().currentWord.ClearWord();
+               QuestionsManager.Shared().currentWord.ResetButtonText();
+          }
+          _buttonText.fontStyle = FontStyles.Bold;
           QuestionsManager.Shared().currentWord = this;
           FindNextCell();
+     }
+
+     public void ResetButtonText()
+     {
+          _buttonText.fontStyle = FontStyles.Normal;
      }
 
      /**
@@ -46,6 +67,7 @@ using UnityEngine;
      private void FillCurrentCell(char character)
      {
           letters[_currLetterIndex].SetLetter(character);
+          _currLetterIndex++;
      }
 
 
@@ -57,6 +79,7 @@ using UnityEngine;
                if (WordIsEqualTo())
                {
                     wordCompleted = true;
+                    _buttonText.fontStyle = FontStyles.Strikethrough;
                     QuestionsManager.Shared().currentWord = null;
                     FillWord();
                }
@@ -84,7 +107,7 @@ using UnityEngine;
           foreach (Letter letter in letters)
           {
                letter.isFilled = true;
-               letter.ChangeLetterColor(Color.green);
+               letter.ChangeLetterColor(successColor);
           }
      }
 
@@ -96,17 +119,12 @@ using UnityEngine;
                     letter.SetLetter('\0');
           }
           _currLetterIndex = 0;
+          FindNextCell();
      }
      
      public bool IsWordFilled()
      {
-          foreach (Letter letter in letters)
-          {
-               if (!letter.isFilled)
-                    return false;
-          }
-
-          return true;
+          return wordCompleted;
      }
 
      public int GetLength()

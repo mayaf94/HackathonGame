@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class Letter : MonoBehaviour
 {
@@ -10,20 +12,31 @@ public class Letter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI letterText;
     private char _letter;
 
+    private Image background;
+    
+    
+    private Color _defaultColor;
+
+    private void Awake()
+    {
+        background = GetComponent<Image>();
+    }
+
     private void Start()
     {
-        letterText = GetComponent<TextMeshProUGUI>();
+        letterText = GetComponentInChildren<TextMeshProUGUI>();
+        _defaultColor = background.color;
     }
     
-    public void ChangeLetterColor(Color newColor) //TODO: might want to also change the color of the gameobject itself
+    public void ChangeLetterColor(Color newColor)
     {
-        letterText.color = newColor;
+        background.color = newColor;
     }
 
     public void SetLetter(char letter)
     {
         _letter = letter;
-        letterText.SetText(letter.ToString());  //todo letterText is null 
+        letterText.SetText(letter.ToString());
     }
 
     public char GetLetter()

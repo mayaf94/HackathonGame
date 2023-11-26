@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[DefaultExecutionOrder(-999)]
 public class QuestionsManager : MonoBehaviour
 {
-    public Word currentWord;
+    [HideInInspector] public Word currentWord;
     
     [SerializeField] private List<Word> wordsList;
+
+    [SerializeField] private GameObject[] rows;
 
     private static QuestionsManager self;
 
@@ -25,11 +29,14 @@ public class QuestionsManager : MonoBehaviour
 
     public void InsertLCharacter(char character)
     {
-        print("Check1");
         if(currentWord == null)
             return;
         currentWord.FillAndStep(character);
-        print("Check2");
+    }
+
+    public List<Letter> GridToLetters(ArrayLayout grid)
+    {
+        return null;
     }
 
     public bool CheckWin()
