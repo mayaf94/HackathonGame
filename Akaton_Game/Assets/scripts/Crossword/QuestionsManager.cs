@@ -26,6 +26,8 @@ public class QuestionsManager : MonoBehaviour
     private void Start()
     {
         Get2DLettersArray();
+        ResetArray();
+        ActivateLettersInWords();
     }
 
     public static QuestionsManager Shared()
