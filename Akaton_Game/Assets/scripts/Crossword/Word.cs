@@ -110,6 +110,14 @@ using UnityEngine;
                letter.ChangeLetterColor(successColor);
           }
      }
+     
+     public void ActivateWord()
+     {
+          foreach (Letter letter in letters)
+          {
+               letter.gameObject.SetActive(true);
+          }
+     }
 
      public void ClearWord()
      {

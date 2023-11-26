@@ -1041,7 +1041,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37fdbc57f47127408abdd5a2611ed69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWord: {fileID: 0}
   wordsList: []
+  rows: []
 --- !u!224 &1515397327 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1407082106337155233, guid: 59f286533e8d9614e997d231b4a56141, type: 3}
@@ -1378,6 +1380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   letters: []
   expectedWord: 
+  successColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1955733311
 Transform:
   m_ObjectHideFlags: 0
