@@ -12,7 +12,7 @@ public class CustPropertyDrawer : PropertyDrawer {
 		newposition.y += 18f;
 		SerializedProperty data = property.FindPropertyRelative("rows");
 		//data.rows[0][]
-		for(int j=0;j<9;j++){
+		for(int j=0;j<7;j++){
 			SerializedProperty row = data.GetArrayElementAtIndex(j).FindPropertyRelative("row");
 			newposition.height = 18f;
 			if(row.arraySize != 9)
