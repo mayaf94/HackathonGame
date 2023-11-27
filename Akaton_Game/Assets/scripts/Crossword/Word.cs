@@ -139,5 +139,14 @@ using UnityEngine;
      {
           return letters.Count;
      }
-     
+
+     public void ResetAllValues(WordObject wordObj)
+     {
+          _currLetterIndex = 0;
+          wordCompleted = false;
+          _buttonText.text = wordObj.questionContent;
+          _buttonText.fontStyle = FontStyles.Normal;
+          expectedWord = wordObj.answer;
+          letters = QuestionsManager.Shared().GridToLetters(wordObj.locationOnBoard);
+     }
 }

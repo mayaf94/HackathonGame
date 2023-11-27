@@ -14,6 +14,8 @@ public class QuestionsManager : MonoBehaviour
 
     [SerializeField] private GameObject[] rows;
 
+    [SerializeField] private LevelObject levelToLoad;
+
     private static QuestionsManager self;
     [HideInInspector] public Letter[][] letters2DArray;
 
@@ -27,6 +29,7 @@ public class QuestionsManager : MonoBehaviour
     {
         Get2DLettersArray();
         ResetArray();
+        LoadLevel(levelToLoad);
         ActivateLettersInWords();
     }
 
@@ -45,7 +48,16 @@ public class QuestionsManager : MonoBehaviour
 
     public List<Letter> GridToLetters(ArrayLayout grid)
     {
-        return null;
+        List<Letter> output = new List<Letter>();
+        for (int i = 0; i < grid.rows.Length; i++)
+        {
+            for (int j = 0; j < grid.rows[i].row.Length; j++)
+            {
+                if(grid.rows[i].row[j])
+                    output.Add(letters2DArray[i][j]);
+            }
+        }
+        return output;
     }
 
     public bool CheckWin()
@@ -83,16 +95,27 @@ public class QuestionsManager : MonoBehaviour
         {
             for (int j = 0; j < letters2DArray[i].Length; j++)
             {
+                letters2DArray[i][j].SetLetter('\0');
                 letters2DArray[i][j].gameObject.SetActive(false);
             }
         }
     }
+    
 
     public void ActivateLettersInWords()
     {
         foreach (var word in wordsList)
         {
             word.ActivateWord();
+        }
+    }
+
+    private void LoadLevel(LevelObject level)
+    {
+        level.BuildList();
+        for (int i = 0; i < 6; i++)
+        {
+            wordsList[i].ResetAllValues(level.wordList[i]);
         }
     }
 }
