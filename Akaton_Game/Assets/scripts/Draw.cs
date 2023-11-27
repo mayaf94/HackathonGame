@@ -23,6 +23,10 @@ public class Draw : MonoBehaviour
     public Transform flag;
     public CanvasGroup background;
     public GameObject EndGameGroup;
+    public Animator animatorFake;
+    public Animator animatorFact;
+    private bool fake = false;
+    private bool fact = false;
 
     public void Start()
     {
@@ -33,9 +37,26 @@ public class Draw : MonoBehaviour
         }
     }
 
+
+    public void Update()
+    {
+
+        if (fake)
+        {
+            animatorFake.SetTrigger("Release");
+            fake = false;
+        }
+        if (fact)
+        {
+            animatorFact.SetTrigger("Release");
+            fact = false;
+        }
+
+    }
     public void Fake()
     {
-        if(answers[Qnum] == false)
+        animatorFake.SetTrigger("Press");
+        if (answers[Qnum] == false)
         {
             correct = true;
         }
@@ -43,11 +64,15 @@ public class Draw : MonoBehaviour
         {
             correct = false;
         }
+        fake = true;
         Show();
+
     }
 
     public void Fact()
     {
+
+        animatorFact.SetTrigger("Press");
         if (answers[Qnum] == true)
         {
             correct = true;
@@ -56,7 +81,9 @@ public class Draw : MonoBehaviour
         {
             correct = false;
         }
+        fact = true;
         Show();
+
     }
 
     public void Show()
@@ -70,9 +97,9 @@ public class Draw : MonoBehaviour
         else
             if (correct)
         {
-            images[i].transform.LeanScale(Vector2.zero, 0.1f);
+            //images[i].transform.LeanScale(Vector2.zero, 0.1f);
             i++;
-            images[i].LeanScale(Vector2.one, 0.8f);
+            images[i].LeanScale(Vector2.one, 0.1f);
         }
         else
         {
@@ -80,7 +107,7 @@ public class Draw : MonoBehaviour
             {
                 images[i].transform.LeanScale(Vector2.zero, 0.1f);
                 i--;
-                images[i].LeanScale(Vector2.one, 0.8f);
+                //images[i].LeanScale(Vector2.one, 0.8f);
             }
         }
 
@@ -117,7 +144,7 @@ public class Draw : MonoBehaviour
         EndGameGroup.SetActive(false);
     }
 
-    private void ResetGame()
+    public void ResetGame()
     {
         i = 0;
         Qnum = 0;
