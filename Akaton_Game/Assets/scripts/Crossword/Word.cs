@@ -116,8 +116,8 @@ using UnityEngine;
           foreach (Letter letter in letters)
           {
                letter.isFilled = true;
-               letter.ChangeLetterColor(successColor);
           }
+          Tween.Shared().OnWordSuccess(this);
      }
      
      public void ActivateWord()

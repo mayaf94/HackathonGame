@@ -86,4 +86,9 @@ public class Letter : MonoBehaviour
     {
         letterText.color = newColor;
     }
+
+    public Image GetBackgroundImage()
+    {
+        return background;
+    }
 }
