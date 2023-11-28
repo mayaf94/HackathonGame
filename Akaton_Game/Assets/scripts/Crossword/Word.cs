@@ -73,7 +73,7 @@ using UnityEngine;
 
      public void FillAndStep(char character)
      {
-          FillCurrentCell(character);  //todo: the button need to check FindNextCell too to walk over the first letters if filled
+          FillCurrentCell(character); 
           if (!FindNextCell())
           {
                if (WordIsEqualTo())
@@ -82,6 +82,7 @@ using UnityEngine;
                     _buttonText.fontStyle = FontStyles.Strikethrough;
                     QuestionsManager.Shared().currentWord = null;
                     FillWord();
+                    QuestionsManager.Shared().CheckWin();
                }
                else
                {

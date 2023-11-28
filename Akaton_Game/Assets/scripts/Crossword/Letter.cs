@@ -20,12 +20,12 @@ public class Letter : MonoBehaviour
     private void Awake()
     {
         background = GetComponent<Image>();
+        _defaultColor = background.color;
     }
 
     private void Start()
     {
         letterText = GetComponentInChildren<TextMeshProUGUI>();
-        _defaultColor = background.color;
     }
     
     public void ChangeLetterColor(Color newColor)
@@ -42,5 +42,12 @@ public class Letter : MonoBehaviour
     public char GetLetter()
     {
         return _letter;
+    }
+
+    public void ResetLetter()
+    {
+        letterText.SetText('\0'.ToString());
+        ChangeLetterColor(_defaultColor);
+        isFilled = false;
     }
 }

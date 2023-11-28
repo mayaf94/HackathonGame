@@ -14,10 +14,12 @@ public class QuestionsManager : MonoBehaviour
 
     [SerializeField] private GameObject[] rows;
 
-    [SerializeField] private LevelObject levelToLoad;
+    [SerializeField] private LevelObject[] levelsToLoad;
 
     private static QuestionsManager self;
     [HideInInspector] public Letter[][] letters2DArray;
+
+    private int levelIndex;
 
     private void Awake()
     {
@@ -27,9 +29,10 @@ public class QuestionsManager : MonoBehaviour
 
     private void Start()
     {
+        levelIndex = 0;
         Get2DLettersArray();
         ResetArray();
-        LoadLevel(levelToLoad);
+        LoadLevel(levelsToLoad[0]);
         ActivateLettersInWords();
     }
 
@@ -60,14 +63,25 @@ public class QuestionsManager : MonoBehaviour
         return output;
     }
 
-    public bool CheckWin()
+    public void CheckWin()
     {
         foreach (Word word in wordsList)
         {
             if (!word.IsWordFilled())
-                return false;
+                return;
         }
-        return true;
+        levelIndex++;
+        if (levelIndex < levelsToLoad.Length)
+        {
+            ResetArray();
+            LoadLevel(levelsToLoad[levelIndex]);
+            ActivateLettersInWords();
+        }
+        else
+        {
+            //todo winning game
+        }
+        
     }
     
     private void Get2DLettersArray()
@@ -95,7 +109,7 @@ public class QuestionsManager : MonoBehaviour
         {
             for (int j = 0; j < letters2DArray[i].Length; j++)
             {
-                letters2DArray[i][j].SetLetter('\0');
+                letters2DArray[i][j].ResetLetter();
                 letters2DArray[i][j].gameObject.SetActive(false);
             }
         }
@@ -118,4 +132,5 @@ public class QuestionsManager : MonoBehaviour
             wordsList[i].ResetAllValues(level.wordList[i]);
         }
     }
+    
 }
