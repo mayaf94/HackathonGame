@@ -41,6 +41,7 @@ using UnityEngine;
           {
                QuestionsManager.Shared().currentWord.ClearWord();
                QuestionsManager.Shared().currentWord.ResetButtonText();
+               QuestionsManager.Shared().currentWord.RemoveAnimationsFromCurrentLetter();
           }
           _buttonText.fontStyle = FontStyles.Bold;
           QuestionsManager.Shared().currentWord = this;
@@ -61,12 +62,19 @@ using UnityEngine;
           while (_currLetterIndex < letters.Count && letters[_currLetterIndex].isFilled)
                _currLetterIndex++; // Continue to next available letter. 
 
-          return _currLetterIndex < letters.Count;
+
+          if (_currLetterIndex < letters.Count)
+          {
+               letters[_currLetterIndex].SelectCellAnimationStart();
+               return true;
+          }
+          return false;
      }
 
      private void FillCurrentCell(char character)
      {
           letters[_currLetterIndex].SetLetter(character);
+          letters[_currLetterIndex].SelectCellAnimationEnd();
           _currLetterIndex++;
      }
 
@@ -139,6 +147,14 @@ using UnityEngine;
      public int GetLength()
      {
           return letters.Count;
+     }
+
+     private void RemoveAnimationsFromCurrentLetter()
+     {
+          if (_currLetterIndex < letters.Count)
+          {
+               letters[_currLetterIndex].SelectCellAnimationEnd();
+          }
      }
 
      public void ResetAllValues(WordObject wordObj)

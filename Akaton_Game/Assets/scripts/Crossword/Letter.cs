@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -49,5 +50,18 @@ public class Letter : MonoBehaviour
         letterText.SetText('\0'.ToString());
         ChangeLetterColor(_defaultColor);
         isFilled = false;
+    }
+
+    public void SelectCellAnimationStart()
+    {
+        
+        transform.DOScale(1.1f, 1).SetLoops(-1, LoopType.Yoyo);
+        
+    }
+
+    public void SelectCellAnimationEnd()
+    {
+        transform.DOKill();
+        transform.localScale = Vector3.one;
     }
 }
