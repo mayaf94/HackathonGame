@@ -64,4 +64,9 @@ public class Letter : MonoBehaviour
         transform.DOKill();
         transform.localScale = Vector3.one;
     }
+
+    public Color GetLetterColor()
+    {
+        return background.color;
+    }
 }
