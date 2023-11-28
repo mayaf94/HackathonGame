@@ -132,8 +132,11 @@ using UnityEngine;
      {
           foreach (var letter in letters)
           {
-               if(!letter.isFilled)
-                    letter.SetLetter('\0');
+               if (!letter.isFilled)
+               {
+                    Tween.Shared().WrongLetterEffect(letter);
+                    // letter.SetLetter('\0');
+               }
           }
           _currLetterIndex = 0;
           FindNextCell();

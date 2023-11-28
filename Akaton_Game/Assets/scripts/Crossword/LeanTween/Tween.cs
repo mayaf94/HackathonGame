@@ -1,48 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
 public class Tween : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI letterText;
-    [SerializeField] private float colorChangeDuration = 2f;
-    [SerializeField] private float delayBeforeDisappear = 1f;
+    [SerializeField] private float colorChangeDuration = 3f;
+    [SerializeField] private float delayBeforeDisappear = 1.5f;
     
-    private Letter _letter;
+    private static Tween self;
+    private TextMeshProUGUI _letterText;
 
-    void Start()
+    private void Awake()
     {
-        LeanTween.value(_letter.gameObject, _letter.ChangeLetterColor, Color.white, Color.red, colorChangeDuration)
-            .setOnComplete(() => StartCoroutine(DelayBeforeDisappear()));
+        if (self == null)
+            self = this;
+    }
+    
+    public static Tween Shared()
+    {
+        return self;
     }
 
-    // void UpdateTextColor(Color color)
-    // {
-    //     // Update the text color during the tween
-    //     _letter.ChangeLetterColor(color);
-    // }
-
-    IEnumerator DelayBeforeDisappear()
+    public void WrongLetterEffect(Letter letter)
     {
-        // Wait for the specified delay before making the text disappear
-        yield return new WaitForSeconds(delayBeforeDisappear);
 
-        // Tween the alpha to 0 to make the text disappear
-        LeanTween.value(gameObject, UpdateTextAlpha, _letter.GetLetterColor().a, 0f, colorChangeDuration)
-            .setOnUpdate(UpdateTextAlpha)
-            .setOnComplete(() => Destroy(gameObject));
+        _letterText = letter.GetTextComponent();
+
+        if (_letterText != null)
+        {
+            _letterText.DOColor(Color.red, 1f).SetEase(Ease.OutQuint).OnComplete(() => OnLetterEffectEnd(letter));
+        }
+        else
+        {
+            Debug.LogWarning("Text component is null.");
+        }
     }
 
-    void UpdateTextAlpha(float alpha)
+    private void OnLetterEffectEnd(Letter letter)
     {
-        // Update the text alpha during the alpha tween
-        Color currentColor = _letter.GetLetterColor();
-        _letter.ChangeLetterColor(new Color(currentColor.r, currentColor.g, currentColor.b, alpha));
-    }
-
-    public void SetCurrLetter(Letter newLetter)
-    {
-        this._letter = newLetter;
+        letter.SetLetter('\0');
+        letter.SetTextColor(letter.GetDefaultTextColor());
     }
 }

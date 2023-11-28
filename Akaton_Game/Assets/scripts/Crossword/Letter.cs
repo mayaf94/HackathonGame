@@ -16,7 +16,8 @@ public class Letter : MonoBehaviour
     private Image background;
     
     
-    private Color _defaultColor;
+    private Color _defaultColor; //TODO: probably not good because it doesn't get the text itself
+    private Color _defaultTextColor;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class Letter : MonoBehaviour
     private void Start()
     {
         letterText = GetComponentInChildren<TextMeshProUGUI>();
+        _defaultTextColor = letterText.color;
     }
     
     public void ChangeLetterColor(Color newColor)
@@ -65,8 +67,23 @@ public class Letter : MonoBehaviour
         transform.localScale = Vector3.one;
     }
 
-    public Color GetLetterColor()
+    public Color GetDefaultLetterColor()
     {
-        return background.color;
+        return _defaultColor;
+    }
+
+    public TextMeshProUGUI GetTextComponent()
+    {
+        return letterText;
+    }
+
+    public Color GetDefaultTextColor()
+    {
+        return _defaultTextColor;
+    }
+
+    public void SetTextColor(Color newColor)
+    {
+        letterText.color = newColor;
     }
 }
