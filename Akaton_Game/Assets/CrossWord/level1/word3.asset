@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f72eb2e7eb8c844eba4cb19aea83d04, type: 3}
   m_Name: word3
   m_EditorClassIdentifier: 
-  questionContent: What is the name of pay?
+  questionContent: 3. What is the name of pay?
   answer: pay
   locationOnBoard:
     rows:
@@ -20,6 +20,8 @@ MonoBehaviour:
     - row: 000000000000010000
     - row: 000000000000010000
     - row: 000000000000010000
+    - row: 000000000000000000
+    - row: 000000000000000000
     - row: 000000000000000000
     - row: 000000000000000000
     - row: 000000000000000000

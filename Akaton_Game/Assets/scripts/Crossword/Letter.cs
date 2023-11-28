@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -20,12 +21,12 @@ public class Letter : MonoBehaviour
     private void Awake()
     {
         background = GetComponent<Image>();
+        _defaultColor = background.color;
     }
 
     private void Start()
     {
         letterText = GetComponentInChildren<TextMeshProUGUI>();
-        _defaultColor = background.color;
     }
     
     public void ChangeLetterColor(Color newColor)
@@ -42,5 +43,25 @@ public class Letter : MonoBehaviour
     public char GetLetter()
     {
         return _letter;
+    }
+
+    public void ResetLetter()
+    {
+        letterText.SetText('\0'.ToString());
+        ChangeLetterColor(_defaultColor);
+        isFilled = false;
+    }
+
+    public void SelectCellAnimationStart()
+    {
+        
+        transform.DOScale(1.1f, 1).SetLoops(-1, LoopType.Yoyo);
+        
+    }
+
+    public void SelectCellAnimationEnd()
+    {
+        transform.DOKill();
+        transform.localScale = Vector3.one;
     }
 }

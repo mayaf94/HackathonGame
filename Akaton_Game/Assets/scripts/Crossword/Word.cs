@@ -41,6 +41,7 @@ using UnityEngine;
           {
                QuestionsManager.Shared().currentWord.ClearWord();
                QuestionsManager.Shared().currentWord.ResetButtonText();
+               QuestionsManager.Shared().currentWord.RemoveAnimationsFromCurrentLetter();
           }
           _buttonText.fontStyle = FontStyles.Bold;
           QuestionsManager.Shared().currentWord = this;
@@ -61,19 +62,26 @@ using UnityEngine;
           while (_currLetterIndex < letters.Count && letters[_currLetterIndex].isFilled)
                _currLetterIndex++; // Continue to next available letter. 
 
-          return _currLetterIndex < letters.Count;
+
+          if (_currLetterIndex < letters.Count)
+          {
+               letters[_currLetterIndex].SelectCellAnimationStart();
+               return true;
+          }
+          return false;
      }
 
      private void FillCurrentCell(char character)
      {
           letters[_currLetterIndex].SetLetter(character);
+          letters[_currLetterIndex].SelectCellAnimationEnd();
           _currLetterIndex++;
      }
 
 
      public void FillAndStep(char character)
      {
-          FillCurrentCell(character);  //todo: the button need to check FindNextCell too to walk over the first letters if filled
+          FillCurrentCell(character); 
           if (!FindNextCell())
           {
                if (WordIsEqualTo())
@@ -82,6 +90,7 @@ using UnityEngine;
                     _buttonText.fontStyle = FontStyles.Strikethrough;
                     QuestionsManager.Shared().currentWord = null;
                     FillWord();
+                    QuestionsManager.Shared().CheckWin();
                }
                else
                {
@@ -138,6 +147,14 @@ using UnityEngine;
      public int GetLength()
      {
           return letters.Count;
+     }
+
+     private void RemoveAnimationsFromCurrentLetter()
+     {
+          if (_currLetterIndex < letters.Count)
+          {
+               letters[_currLetterIndex].SelectCellAnimationEnd();
+          }
      }
 
      public void ResetAllValues(WordObject wordObj)
