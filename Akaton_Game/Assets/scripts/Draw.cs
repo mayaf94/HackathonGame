@@ -23,10 +23,12 @@ public class Draw : MonoBehaviour
     public Transform flag;
     public CanvasGroup background;
     public GameObject EndGameGroup;
-    public Animator animatorFake;
-    public Animator animatorFact;
-    private bool fake = false;
-    private bool fact = false;
+    //public Animator animatorFake;
+   // public Animator animatorFact;
+    [SerializeField] TMP_Text Header;
+    [SerializeField] GameObject EndGameButtons;
+    //[SerializeField] GameObject PauseGameButtons;
+
 
     public void Start()
     {
@@ -35,27 +37,28 @@ public class Draw : MonoBehaviour
         {
             images[j].transform.localScale = Vector2.zero;
         }
+
     }
 
 
     public void Update()
     {
 
-        if (fake)
-        {
-            animatorFake.SetTrigger("Release");
-            fake = false;
-        }
-        if (fact)
-        {
-            animatorFact.SetTrigger("Release");
-            fact = false;
-        }
+        //if (fake)
+        //{
+        //    animatorFake.SetTrigger("Release");
+        //    fake = false;
+        //}
+        //if (fact)
+        //{
+        //    animatorFact.SetTrigger("Release");
+        //    fact = false;
+        //}
 
     }
     public void Fake()
     {
-        animatorFake.SetTrigger("Press");
+        //animatorFake.SetTrigger("Press");
         if (answers[Qnum] == false)
         {
             correct = true;
@@ -64,7 +67,6 @@ public class Draw : MonoBehaviour
         {
             correct = false;
         }
-        fake = true;
         Show();
 
     }
@@ -72,7 +74,7 @@ public class Draw : MonoBehaviour
     public void Fact()
     {
 
-        animatorFact.SetTrigger("Press");
+        //animatorFact.SetTrigger("Press");
         if (answers[Qnum] == true)
         {
             correct = true;
@@ -81,7 +83,6 @@ public class Draw : MonoBehaviour
         {
             correct = false;
         }
-        fact = true;
         Show();
 
     }
@@ -116,9 +117,12 @@ public class Draw : MonoBehaviour
         {
             window.text = Qu[Qnum];
         }
-        else
+        if(Qnum > 8 || i == 6)
         {
             EndGameGroup.SetActive(true);
+            Header.text = "Good Job!";
+            //EndGameButtons.SetActive(true);
+            //PauseGameButtons.SetActive(false);
             EndGame();
         }
     }
@@ -134,8 +138,6 @@ public class Draw : MonoBehaviour
 
     public void CloseDialog()
     {
-        background.LeanAlpha(0, 0.5f);
-        flag.LeanMoveLocalY(Screen.height, 0.5f).setEaseInExpo().setOnComplete(OnClose);
         ResetGame();
     }
 
@@ -153,6 +155,17 @@ public class Draw : MonoBehaviour
         {
             images[j].transform.localScale = Vector2.zero;
         }
+        background.LeanAlpha(0, 0.5f);
+        flag.LeanMoveLocalY(Screen.height, 0.5f).setEaseInExpo().setOnComplete(OnClose);
     }
+
+    //public void Pause()
+    //{
+    //    EndGameGroup.SetActive(true);
+    //    //EndGameButtons.SetActive(false);
+    //    //PauseGameButtons.SetActive(true);
+    //    Header.text = "Pause";
+    //    EndGame();
+    //}
 
 }
