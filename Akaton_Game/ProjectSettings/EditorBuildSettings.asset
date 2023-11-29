@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game1.unity
     guid: 31d746b40edc0764b9c5b3561c38e360
+  - enabled: 1
+    path: Assets/Scenes/LeeyamCrossword.unity
+    guid: 628de62b3ee54f14985196ed66d0eb89
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 79f7fa422d5c0f24a995fd1575b737c3, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 2a553ccf284caff43a466785896ec152, type: 2}

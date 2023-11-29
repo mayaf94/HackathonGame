@@ -57,17 +57,18 @@ public class Tween : MonoBehaviour
     public void OnWordSuccess(Word word)
     {
         float inDelay = 0f;
-        float outDelay = 0.8f + word.GetLength() * 0.1f;
+        float outDelay = 1.6f + word.GetLength() * 0.1f;
         float scaling = 0.15f;
         int i = 1;
+        Transform firstLetterTransform = word.letters[0].transform;
+        float xOriginalVal = firstLetterTransform.localScale.x;
+        float yOriginalVal = firstLetterTransform.localScale.y;
+        float zOriginalVal = firstLetterTransform.localScale.z;
         
         foreach (Letter letter in word.letters)
         {
             Transform letterTransform = letter.transform;
             Image background = letter.GetBackgroundImage();
-            float xOriginalVal = letterTransform.localScale.x;
-            float yOriginalVal = letterTransform.localScale.y;
-            float zOriginalVal = letterTransform.localScale.z;
             float scale = 1 + scaling * i;
             
             letterTransform.DOScale(
@@ -85,6 +86,8 @@ public class Tween : MonoBehaviour
         }
 
     }
+
+    
 
     private void MakeLetterShine(Image background, float inDelay, float outDelay)
     {

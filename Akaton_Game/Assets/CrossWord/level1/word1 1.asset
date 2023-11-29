@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f72eb2e7eb8c844eba4cb19aea83d04, type: 3}
   m_Name: word1 1
   m_EditorClassIdentifier: 
-  questionContent: 1. What is the name of play?
-  answer: play
+  questionContent: Hundreds of captives held by Hamas for ransom
+  answer: hostages
   locationOnBoard:
     rows:
-    - row: 000000000000000000
-    - row: 000000000000000000
-    - row: 000000000000000000
-    - row: 000000010101010000
-    - row: 000000000000000000
-    - row: 000000000000000000
-    - row: 000000000000000000
-    - row: 000000000000000000
+    - row: 000000010000000000
+    - row: 000000010000000000
+    - row: 000000010000000000
+    - row: 000000010000000000
+    - row: 000000010000000000
+    - row: 000000010000000000
+    - row: 000000010000000000
+    - row: 000000010000000000
     - row: 000000000000000000

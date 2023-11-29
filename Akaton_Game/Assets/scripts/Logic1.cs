@@ -7,7 +7,7 @@ public class Logic1 : MonoBehaviour
 {
     public void OnPlayCross()
     {
-        SceneManager.LoadScene("Game1");
+        SceneManager.LoadScene("LeeyamCrossword");
     }
     public void OnPlayFaked()
     {

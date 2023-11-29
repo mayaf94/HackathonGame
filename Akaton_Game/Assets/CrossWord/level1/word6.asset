@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f72eb2e7eb8c844eba4cb19aea83d04, type: 3}
   m_Name: word6
   m_EditorClassIdentifier: 
-  questionContent: 6. What is the name of hen?
-  answer: hen
+  questionContent: The Gaza Strip leader of Hamas, former prisoner, killed Palestinians
+    with his bare hands
+  answer: sinwar
   locationOnBoard:
     rows:
     - row: 000000000000000000
     - row: 000000000000000000
-    - row: 010101000000000000
     - row: 000000000000000000
     - row: 000000000000000000
     - row: 000000000000000000
     - row: 000000000000000000
     - row: 000000000000000000
+    - row: 000000010101010101
     - row: 000000000000000000

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-[DefaultExecutionOrder(-999)]
+[DefaultExecutionOrder(-900)]
 public class QuestionsManager : MonoBehaviour
 {
     [HideInInspector] public Word currentWord;
