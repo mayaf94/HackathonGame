@@ -132,8 +132,9 @@ using UnityEngine;
      {
           foreach (var letter in letters)
           {
-               if (!letter.isFilled)
+               if (!letter.isFilled && letter.GetLetter() != '\0')
                {
+                    letter.SelectCellAnimationEnd();
                     Tween.Shared().WrongLetterEffect(letter);
                     // letter.SetLetter('\0');
                }

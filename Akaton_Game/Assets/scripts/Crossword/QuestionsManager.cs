@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [DefaultExecutionOrder(-999)]
 public class QuestionsManager : MonoBehaviour
 {
     [HideInInspector] public Word currentWord;
+
+    [HideInInspector] public bool isActionActive;
     
     [SerializeField] private List<Word> wordsList;
 
@@ -18,6 +21,11 @@ public class QuestionsManager : MonoBehaviour
 
     private static QuestionsManager self;
     [HideInInspector] public Letter[][] letters2DArray;
+    
+    [Header("Endgame")]
+    public Transform flag;
+    public CanvasGroup background;
+    public GameObject endGameGroup;
 
     private int levelIndex;
 
@@ -79,9 +87,19 @@ public class QuestionsManager : MonoBehaviour
         }
         else
         {
-            //todo winning game
+            endGameGroup.SetActive(true);
+            EndGame();
         }
         
+    }
+    
+    private void EndGame()
+    {
+        background.alpha = 0;
+        background.LeanAlpha(1, 0.5f);
+
+        flag.localPosition = new Vector2(0, Screen.height);
+        flag.LeanMoveLocalY(600, 0.5f).setEaseOutExpo().delay = 0.1f;
     }
     
     private void Get2DLettersArray()
@@ -131,6 +149,11 @@ public class QuestionsManager : MonoBehaviour
         {
             wordsList[i].ResetAllValues(level.wordList[i]);
         }
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene("LeeyamCrossword");
     }
     
 }

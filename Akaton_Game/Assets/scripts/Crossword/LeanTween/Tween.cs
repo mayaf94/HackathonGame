@@ -35,11 +35,11 @@ public class Tween : MonoBehaviour
     public void WrongLetterEffect(Letter letter)
     {
 
-        _letterText = letter.GetTextComponent();
+        Image cellBackground = letter.GetBackgroundImage();
 
-        if (_letterText != null)
+        if (cellBackground != null)
         {
-            _letterText.DOColor(Color.red, colorChangeDuration).SetEase(Ease.OutQuint).OnComplete(() => OnLetterEffectEnd(letter));
+            cellBackground.DOColor(Color.red, colorChangeDuration).SetEase(Ease.OutQuint).OnComplete(() => OnLetterEffectEnd(letter));
         }
         else
         {
@@ -50,14 +50,15 @@ public class Tween : MonoBehaviour
     private void OnLetterEffectEnd(Letter letter)
     {
         letter.SetLetter('\0');
-        letter.SetTextColor(letter.GetDefaultTextColor());
+        letter.GetBackgroundImage().color = letter.GetWantedColor();
+        //letter.SetTextColor(letter.GetDefaultTextColor());
     }
     
     public void OnWordSuccess(Word word)
     {
         float inDelay = 0f;
         float outDelay = 0.8f + word.GetLength() * 0.1f;
-        float scaling = 0.25f;
+        float scaling = 0.15f;
         int i = 1;
         
         foreach (Letter letter in word.letters)
@@ -89,6 +90,6 @@ public class Tween : MonoBehaviour
     {
         Color originalColor = background.color;
         background.DOColor(shineColor, shineDuration).SetEase(Ease.OutBack).SetDelay(inDelay);
-        background.DOColor(originalColor, shineDuration).SetEase(Ease.InBack).SetDelay(outDelay);
+        //background.DOColor(originalColor, shineDuration).SetEase(Ease.InBack).SetDelay(outDelay);
     }
 }

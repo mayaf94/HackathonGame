@@ -14,7 +14,8 @@ public class Letter : MonoBehaviour
     private char _letter;
 
     private Image background;
-    
+
+    private Color _currentWantedColor;
     
     private Color _defaultColor; //TODO: probably not good because it doesn't get the text itself
     private Color _defaultTextColor;
@@ -29,11 +30,13 @@ public class Letter : MonoBehaviour
     {
         letterText = GetComponentInChildren<TextMeshProUGUI>();
         _defaultTextColor = letterText.color;
+        _currentWantedColor = _defaultColor;
     }
     
     public void ChangeLetterColor(Color newColor)
     {
         background.color = newColor;
+        _currentWantedColor = newColor;
     }
 
     public void SetLetter(char letter)
@@ -57,19 +60,30 @@ public class Letter : MonoBehaviour
     public void SelectCellAnimationStart()
     {
         
-        transform.DOScale(1.1f, 1).SetLoops(-1, LoopType.Yoyo);
+        transform.DOScale(1.2f, 0.6f).SetLoops(-1, LoopType.Yoyo);
+        transform.SetAsLastSibling();
+        transform.parent.SetAsLastSibling();
+        ChangeLetterColor(Color.yellow);
+        _currentWantedColor = Color.yellow;
         
     }
 
     public void SelectCellAnimationEnd()
     {
         transform.DOKill();
+        ChangeLetterColor(_defaultColor);
+        _currentWantedColor = _defaultColor;
         transform.localScale = Vector3.one;
     }
 
     public Color GetDefaultLetterColor()
     {
         return _defaultColor;
+    }
+
+    public Color GetWantedColor()
+    {
+        return _currentWantedColor;
     }
 
     public TextMeshProUGUI GetTextComponent()
