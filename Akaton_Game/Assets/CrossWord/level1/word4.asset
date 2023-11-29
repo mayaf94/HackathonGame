@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f72eb2e7eb8c844eba4cb19aea83d04, type: 3}
   m_Name: word4
   m_EditorClassIdentifier: 
-  questionContent: 4. What is the name of boy?
-  answer: boy
+  questionContent: A hospital in Gaza where Hamas kept some of its captives
+  answer: shifa
   locationOnBoard:
     rows:
-    - row: 010101000000000000
     - row: 000000000000000000
     - row: 000000000000000000
+    - row: 000000010101010100
     - row: 000000000000000000
     - row: 000000000000000000
     - row: 000000000000000000
