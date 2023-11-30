@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 
 [DefaultExecutionOrder(-900)]
@@ -97,9 +99,11 @@ public class QuestionsManager : MonoBehaviour
     {
         background.alpha = 0;
         background.LeanAlpha(1, 0.5f);
-
+        float beforePos = flag.localPosition.y;
         flag.localPosition = new Vector2(0, Screen.height);
-        flag.LeanMoveLocalY(600, 0.5f).setEaseOutExpo().delay = 0.1f;
+        print(flag.GetComponent<RectTransform>().rect.height);
+        flag.LeanMoveLocalY(beforePos, 0.5f).setEaseOutExpo().delay = 0.1f;
+        
     }
     
     private void Get2DLettersArray()
@@ -123,6 +127,7 @@ public class QuestionsManager : MonoBehaviour
 
     public void ResetArray()
     {
+        DOTween.KillAll();
         for (int i = 0; i < letters2DArray.Length; i++)
         {
             for (int j = 0; j < letters2DArray[i].Length; j++)

@@ -107,7 +107,7 @@ using UnityEngine;
           {
                userAttemptString += letter.GetLetter();
           }
-
+          print(userAttemptString + "   " + expectedWord);
           return userAttemptString.Equals(expectedWord);
      }
      
@@ -167,7 +167,7 @@ using UnityEngine;
           wordCompleted = false;
           _buttonText.text = wordObj.questionContent;
           _buttonText.fontStyle = FontStyles.Normal;
-          expectedWord = wordObj.answer;
+          expectedWord = wordObj.answer.ToUpper();
           letters = QuestionsManager.Shared().GridToLetters(wordObj.locationOnBoard);
      }
 }
