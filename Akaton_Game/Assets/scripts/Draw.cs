@@ -9,7 +9,7 @@ public class Draw : MonoBehaviour
     public bool[] answers;
     private bool correct;
     private int i = 0;
-    private int Qnum = 0;
+    public int Qnum = 0;
     public TextMeshProUGUI window;
     public string[] Qu = { "The Oslo Accords were a series of agreements between Israel and the Palestine Liberation Organization (PLO) that were signed in the 1990s.",
     "In 1948, the Arab states invaded Israel in an attempt to prevent its establishment. Israel defeated the Arab armies and expanded its territory beyond the borders of the UN partition plan.",
@@ -117,7 +117,7 @@ public class Draw : MonoBehaviour
         {
             window.text = Qu[Qnum];
         }
-        if(Qnum > 8 || i == 6)
+        if(Qnum >= 8 || i == 6)
         {
             EndGameGroup.SetActive(true);
             Header.text = "Good Job!";
