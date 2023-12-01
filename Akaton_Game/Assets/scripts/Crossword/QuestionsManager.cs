@@ -80,6 +80,8 @@ public class QuestionsManager : MonoBehaviour
             if (!word.IsWordFilled())
                 return;
         }
+        GameManager.Shared().IncreaseScore(levelIndex, levelsToLoad.Length,
+                                            GameManager.CROSSWORD_USER_SOLVED_LEVEL_TAG);
         levelIndex++;
         if (levelIndex < levelsToLoad.Length)
         {
