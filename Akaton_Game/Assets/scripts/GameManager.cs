@@ -57,8 +57,8 @@ public class GameManager : MonoBehaviour
 
     private void CheckPlayerPrefs()
     {
-        // PlayerPrefs.SetInt(CROSSWORD_USER_SOLVED_LEVEL_TAG, -1); //TODO: remove - only for check
-        // PlayerPrefs.SetInt(SCORE_TAG, 0); //TODO: remove - only for check
+            // PlayerPrefs.SetInt(CROSSWORD_USER_SOLVED_LEVEL_TAG, -1); //TODO: remove - only for check
+            // PlayerPrefs.SetInt(SCORE_TAG, 0); //TODO: remove - only for check
         
         if (!PlayerPrefs.HasKey(SCORE_TAG))
         {
@@ -101,8 +101,6 @@ public class GameManager : MonoBehaviour
         score += increaseBy * MINIGAME_MAX_SCORE;
         PlayerPrefs.SetFloat(SCORE_TAG, score);
         progressBar.FillBar(GetFillPercentage());
-        print("score: " + score);
-        print("GetFillPercentage: " + GetFillPercentage());
     }
 
     // public void ResetMinigame(string minigameTag)
