@@ -9,23 +9,35 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private ProgressBar progressBar;
-    
-    private static GameManager self;
-    private float score;
-    private float minigameMaxScore;
-
     [HideInInspector] public const string CROSSWORD_USER_SOLVED_LEVEL_TAG = "crosswordLevel";
     [HideInInspector] public const string TRUTH_LIE_USER_SOLVED_LEVEL_TAG = "TruthLieLevel";
     private const float MAX_SCORE = 100;
     private const int AMOUNT_OF_GAMES = 2;
     private const string SCORE_TAG = "score";
+    private const float MINIGAME_MAX_SCORE = MAX_SCORE / AMOUNT_OF_GAMES;
+
+    private ProgressBar progressBar;
+    private static GameManager self;
+    private float score;
 
 
     private void Awake()
     {
+        // // Ensure there is only one instance of the GameManager
+        // if (self == null)
+        // {
+        //     self = this;
+        //     DontDestroyOnLoad(gameObject);
+        // }
+        // else
+        // {
+        //     // If an instance already exists, destroy the duplicate
+        //     Destroy(gameObject);
+        // }
         if (self == null)
+        {
             self = this;
+        }
     }
 
     public static GameManager Shared()
@@ -35,11 +47,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
-        
-        minigameMaxScore = MAX_SCORE / AMOUNT_OF_GAMES;
         CheckPlayerPrefs();
-        if (progressBar != null) //TODO: when opening a minigame - use the function
+        progressBar = GameObject.FindWithTag("progressBar").GetComponent<ProgressBar>();
+        if (progressBar != null) // If a progress bar exists in the scene, it will fill it
         {
             progressBar.FillBar(GetFillPercentage());
         }
@@ -47,19 +57,20 @@ public class GameManager : MonoBehaviour
 
     private void CheckPlayerPrefs()
     {
-        PlayerPrefs.SetInt(CROSSWORD_USER_SOLVED_LEVEL_TAG, -1); //TODO: remove - only for check
-        PlayerPrefs.SetInt(SCORE_TAG, 0); //TODO: remove - only for check
+        // PlayerPrefs.SetInt(CROSSWORD_USER_SOLVED_LEVEL_TAG, -1); //TODO: remove - only for check
+        // PlayerPrefs.SetInt(SCORE_TAG, 0); //TODO: remove - only for check
         
         if (!PlayerPrefs.HasKey(SCORE_TAG))
         {
             score = 0;
-            PlayerPrefs.SetInt(SCORE_TAG, 0);
+            PlayerPrefs.SetFloat(SCORE_TAG, 0);
         }
         
         if (!PlayerPrefs.HasKey(CROSSWORD_USER_SOLVED_LEVEL_TAG))
             PlayerPrefs.SetInt(CROSSWORD_USER_SOLVED_LEVEL_TAG, -1);
         if (!PlayerPrefs.HasKey(TRUTH_LIE_USER_SOLVED_LEVEL_TAG))
             PlayerPrefs.SetInt(TRUTH_LIE_USER_SOLVED_LEVEL_TAG, -1);
+        score = PlayerPrefs.GetFloat(SCORE_TAG);
     }
 
     public void RestartScene()
@@ -72,7 +83,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainScreen");
     }
 
-    private float GetFillPercentage()
+    public float GetFillPercentage()
     {
         return score/MAX_SCORE;
     }
@@ -87,7 +98,7 @@ public class GameManager : MonoBehaviour
         
         PlayerPrefs.SetInt(minigameTag, levelIndex);
         float increaseBy = (float) 1/minigameLevels;
-        score += increaseBy * minigameMaxScore;
+        score += increaseBy * MINIGAME_MAX_SCORE;
         PlayerPrefs.SetFloat(SCORE_TAG, score);
         progressBar.FillBar(GetFillPercentage());
         print("score: " + score);
