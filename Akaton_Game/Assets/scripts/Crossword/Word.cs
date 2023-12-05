@@ -130,12 +130,16 @@ using UnityEngine;
 
      public void ClearWord()
      {
+          bool isLastLetter = false;
           foreach (var letter in letters)
           {
-               if (!letter.isFilled && letter.GetLetter() != '\0')
+               if (!letter.isFilled && !isLastLetter)
                {
+                    if (letter.GetLetter() == '\0')
+                         isLastLetter = true;
+                    else
+                         Tween.Shared().WrongLetterEffect(letter);
                     letter.SelectCellAnimationEnd();
-                    Tween.Shared().WrongLetterEffect(letter);
                     // letter.SetLetter('\0');
                }
           }

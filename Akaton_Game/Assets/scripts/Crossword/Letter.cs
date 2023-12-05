@@ -17,7 +17,7 @@ public class Letter : MonoBehaviour
 
     private Color _currentWantedColor;
     
-    private Color _defaultColor; //TODO: probably not good because it doesn't get the text itself
+    private Color _defaultColor;
     private Color _defaultTextColor;
 
     private void Awake()
