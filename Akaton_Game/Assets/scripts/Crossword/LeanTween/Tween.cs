@@ -34,12 +34,16 @@ public class Tween : MonoBehaviour
 
     public void WrongLetterEffect(Letter letter)
     {
-
+        QuestionsManager.Shared().inAnimation = true;
         Image cellBackground = letter.GetBackgroundImage();
 
         if (cellBackground != null)
         {
-            cellBackground.DOColor(Color.red, colorChangeDuration).SetEase(Ease.OutQuint).OnComplete(() => OnLetterEffectEnd(letter));
+            cellBackground.DOColor(Color.red, colorChangeDuration).SetEase(Ease.OutQuint).OnComplete(() =>
+            {
+                OnLetterEffectEnd(letter);
+                QuestionsManager.Shared().inAnimation = false;
+            });
         }
         else
         {
@@ -64,7 +68,6 @@ public class Tween : MonoBehaviour
         float xOriginalVal = firstLetterTransform.localScale.x;
         float yOriginalVal = firstLetterTransform.localScale.y;
         float zOriginalVal = firstLetterTransform.localScale.z;
-        
         foreach (Letter letter in word.letters)
         {
             Transform letterTransform = letter.transform;
@@ -84,9 +87,13 @@ public class Tween : MonoBehaviour
             outDelay -= 0.1f;
             i++;
         }
-
     }
 
+    private IEnumerator SetInAnimationAfterTime(float time, bool val)
+    {
+        yield return new WaitForSeconds(time);
+        QuestionsManager.Shared().inAnimation = val;
+    }
     
 
     private void MakeLetterShine(Image background, float inDelay, float outDelay)

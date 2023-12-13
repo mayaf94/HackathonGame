@@ -29,12 +29,15 @@ public class QuestionsManager : MonoBehaviour
     public CanvasGroup background;
     public GameObject endGameGroup;
 
+    [HideInInspector] public bool inAnimation;
+
     private int levelIndex;
 
     private void Awake()
     {
         if (self == null)
             self = this;
+        inAnimation = false;
     }
 
     private void Start()
@@ -135,6 +138,7 @@ public class QuestionsManager : MonoBehaviour
     public void ResetArray()
     {
         DOTween.KillAll();
+        inAnimation = false;
         for (int i = 0; i < letters2DArray.Length; i++)
         {
             for (int j = 0; j < letters2DArray[i].Length; j++)
