@@ -83,6 +83,12 @@ public class QuestionsManager : MonoBehaviour
         GameManager.Shared().IncreaseScore(levelIndex, levelsToLoad.Length,
                                             GameManager.CROSSWORD_USER_SOLVED_LEVEL_TAG);
         levelIndex++;
+        StartCoroutine(Winning());
+    }
+
+    private IEnumerator Winning()
+    {
+        yield return new WaitForSeconds(4);
         if (levelIndex < levelsToLoad.Length)
         {
             ResetArray();
@@ -94,7 +100,6 @@ public class QuestionsManager : MonoBehaviour
             endGameGroup.SetActive(true);
             EndGame();
         }
-        
     }
     
     private void EndGame()
