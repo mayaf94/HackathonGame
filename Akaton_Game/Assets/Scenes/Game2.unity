@@ -1078,6 +1078,7 @@ MonoBehaviour:
   - {fileID: 262310442}
   - {fileID: 1200371853}
   answers: 0101000100010000
+  Qnum: 0
   window: {fileID: 161052970}
   Qu:
   - The Oslo Accords were a series of agreements between Israel and the Palestine
@@ -3474,7 +3475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1726239492
 RectTransform:
   m_ObjectHideFlags: 0
