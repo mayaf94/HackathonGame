@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3959d26adebd934f90d948c6e6a0114, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  Q1: The Oslo Accords were a series of agreements between Israel and the Palestine
+    Liberation Organization (PLO) that were signed in the 1990s.
+  Q2: In 1948, the Arab states invaded Israel in an attempt to prevent its establishment.
+    Israel defeated the Arab armies and expanded its territory beyond the borders
+    of the UN partition plan.
+  Q3: The Jewish people had never lived in the land of Israel before the founding
+    of the state.
+  Q4: In 1947, the United Nations voted to partition Palestine into two states, one
+    Arab and one Jewish. The Arab leadership rejected the partition plan and called
+    for a united Arab state in Palestine.
+  Q5: The French Mandate for Palestine was a period of French rule over Palestine
+    from 1922 to 1948.
+  Q6: The First and Second Intifadas were a series of violent attacks by Palestinian
+    terrorists on Israeli civilians, including Bombing public transport and shooting
+    Israeli babies.
+  Q7: In 1947, the United Nations voted to partition Palestine into two states, one
+    Arab and one Jewish. The Jewish leadership rejected the partition  and called
+    for an all Jewish state.
+  Q8: While negotiating Oslo agreements, Israel has refused to withdraw or give up
+    any of its territories.
+  A1: 1
+  A2: 1
+  A3: 0
+  A4: 1
+  A5: 0
+  A6: 1
+  A7: 0
+  A8: 0
+  quastions:
+  - The Oslo Accords were a series of agreements between Israel and the Palestine
+    Liberation Organization (PLO) that were signed in the 1990s.
+  - In 1948, the Arab states invaded Israel in an attempt to prevent its establishment.
+    Israel defeated the Arab armies and expanded its territory beyond the borders
+    of the UN partition plan.
+  - The Jewish people had never lived in the land of Israel before the founding of
+    the state.
+  - In 1947, the United Nations voted to partition Palestine into two states, one
+    Arab and one Jewish. The Arab leadership rejected the partition plan and called
+    for a united Arab state in Palestine.
+  - The French Mandate for Palestine was a period of French rule over Palestine from
+    1922 to 1948.
+  - The First and Second Intifadas were a series of violent attacks by Palestinian
+    terrorists on Israeli civilians, including Bombing public transport and shooting
+    Israeli babies.
+  - In 1947, the United Nations voted to partition Palestine into two states, one
+    Arab and one Jewish. The Jewish leadership rejected the partition  and called
+    for an all Jewish state.
+  - While negotiating Oslo agreements, Israel has refused to withdraw or give up
+    any of its territories.
+  answers: 0101000100010000

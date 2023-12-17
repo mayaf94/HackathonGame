@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3959d26adebd934f90d948c6e6a0114, type: 3}
+  m_Name: Level3
+  m_EditorClassIdentifier: 
+  Q1: The Dead Sea is so salty that no living creatures can survive in its waters.
+  Q2: The flag of Israel features a star of David in the center.
+  Q3: Israel shares its southern border with Egypt.
+  Q4: The lowest point on Earth, the Dead Sea, is located in Israel.
+  Q5: The official currency of Israel is the Euro.
+  Q6: Gaza is governed by the Palestinian Authority.
+  Q7: The Gaza Strip shares a border with Egypt.
+  Q8: Before October 7th, Israel provided the Gaza Strip with Food, water ,electricityon,money
+    and fuel on a daily basis.
+  A1: 0
+  A2: 1
+  A3: 1
+  A4: 1
+  A5: 0
+  A6: 0
+  A7: 1
+  A8: 1
+  quastions:
+  - The Dead Sea is so salty that no living creatures can survive in its waters.
+  - The flag of Israel features a star of David in the center.
+  - Israel shares its southern border with Egypt.
+  - The lowest point on Earth, the Dead Sea, is located in Israel.
+  - The official currency of Israel is the Euro.
+  - Gaza is governed by the Palestinian Authority.
+  - The Gaza Strip shares a border with Egypt.
+  - Before October 7th, Israel provided the Gaza Strip with Food, water ,electricityon,money
+    and fuel on a daily basis.
+  answers: 0001010100000101

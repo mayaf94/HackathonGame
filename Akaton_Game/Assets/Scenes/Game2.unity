@@ -1077,35 +1077,18 @@ MonoBehaviour:
   - {fileID: 2046658975}
   - {fileID: 262310442}
   - {fileID: 1200371853}
-  answers: 0101000100010000
   Qnum: 0
   window: {fileID: 161052970}
-  Qu:
-  - The Oslo Accords were a series of agreements between Israel and the Palestine
-    Liberation Organization (PLO) that were signed in the 1990s.
-  - In 1948, the Arab states invaded Israel in an attempt to prevent its establishment.
-    Israel defeated the Arab armies and expanded its territory beyond the borders
-    of the UN partition plan.
-  - The Jewish people had never lived in the land of Israel before the founding of
-    the state.
-  - In 1947, the United Nations voted to partition Palestine into two states, one
-    Arab and one Jewish. The Arab leadership rejected the partition plan and called
-    for a united Arab state in Palestine.
-  - The French Mandate for Palestine was a period of French rule over Palestine from
-    1922 to 1948.
-  - The First and Second Intifadas were a series of violent attacks by Palestinian
-    terrorists on Israeli civilians, including Bombing public transport and shooting
-    Israeli babies.
-  - In 1947, the United Nations voted to partition Palestine into two states, one
-    Arab and one Jewish. The Jewish leadership rejected the partition  and called
-    for an all Jewish state.
-  - While negotiating Oslo agreements, Israel has refused to withdraw or give up
-    any of its territories.
+  levelsToLoad:
+  - {fileID: 11400000, guid: 9f9b9c8dea9a8f944be9eded6ed59bd8, type: 2}
+  - {fileID: 11400000, guid: 10698c029913dcc4480d9408c3e7ae98, type: 2}
+  - {fileID: 11400000, guid: d17a1055affc9114f96ed9f0a6bb559b, type: 2}
   flag: {fileID: 2136828393}
   background: {fileID: 907538761}
   EndGameGroup: {fileID: 1883735840}
   Header: {fileID: 8752292184655129918}
   EndGameButtons: {fileID: 8752292184655129917}
+  Level: 0
 --- !u!4 &611248826
 Transform:
   m_ObjectHideFlags: 0
@@ -2218,10 +2201,10 @@ RectTransform:
   m_Father: {fileID: 191065724}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -100}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1061145160
 MonoBehaviour:
@@ -2352,10 +2335,10 @@ RectTransform:
   m_Father: {fileID: 472491029}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -25}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1082459129
 MonoBehaviour:
@@ -2695,10 +2678,10 @@ RectTransform:
   m_Father: {fileID: 191065724}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -25}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1178325761
 MonoBehaviour:
@@ -3182,10 +3165,10 @@ RectTransform:
   m_Father: {fileID: 472491029}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -100}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602063960
 MonoBehaviour:
@@ -3644,10 +3627,10 @@ RectTransform:
   m_Father: {fileID: 191065724}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -175}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833316828
 MonoBehaviour:
@@ -3705,7 +3688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1877420746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4530,6 +4513,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6575730937546800670, guid: 136075ba1446296408991467c6612b74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6575730937987306100, guid: 136075ba1446296408991467c6612b74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -4649,6 +4636,10 @@ PrefabInstance:
     - target: {fileID: 6575730938905051740, guid: 136075ba1446296408991467c6612b74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575730938905051741, guid: 136075ba1446296408991467c6612b74, type: 3}
+      propertyPath: spacing.x
+      value: 27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 136075ba1446296408991467c6612b74, type: 3}

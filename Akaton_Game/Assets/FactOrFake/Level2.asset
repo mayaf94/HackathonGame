@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3959d26adebd934f90d948c6e6a0114, type: 3}
+  m_Name: Level2
+  m_EditorClassIdentifier: 
+  Q1: The Gaza Strip is under Israeli occupation since 1967.
+  Q2: 'Hamas dismantled an airport built in the Gaza Strip when it was under Israeli
+    control '
+  Q3: 'After the 1948 war, Israel signed armistice agreements with all the countries
+    it borders with, acknowledging its borders '
+  Q4: Tel Aviv is the capital city of Israel.
+  Q5: Hebrew and Arabic are the official languages of Israel.
+  Q6: 'When Israel disengaged from the Gaza Strip in 2005, it left the greenhouses
+    it built for the Gazan people to develop their agriculture. They were all destroyed
+    when Hamas took over Gaza '
+  Q7: 'Hamas obstructed Gazan civilians from evacuating south after the IDF warned
+    them '
+  Q8: The national bird of Israel is the Eagle.
+  A1: 0
+  A2: 1
+  A3: 1
+  A4: 0
+  A5: 1
+  A6: 1
+  A7: 1
+  A8: 0
+  quastions:
+  - The Gaza Strip is under Israeli occupation since 1967.
+  - 'Hamas dismantled an airport built in the Gaza Strip when it was under Israeli
+    control '
+  - 'After the 1948 war, Israel signed armistice agreements with all the countries
+    it borders with, acknowledging its borders '
+  - Tel Aviv is the capital city of Israel.
+  - Hebrew and Arabic are the official languages of Israel.
+  - 'When Israel disengaged from the Gaza Strip in 2005, it left the greenhouses
+    it built for the Gazan people to develop their agriculture. They were all destroyed
+    when Hamas took over Gaza '
+  - 'Hamas obstructed Gazan civilians from evacuating south after the IDF warned
+    them '
+  - The national bird of Israel is the Eagle.
+  answers: 0001010001010100
