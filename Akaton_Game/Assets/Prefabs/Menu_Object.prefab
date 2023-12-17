@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f84756ce2c16bd468fb022ba422deab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spacing: {x: 27, y: 0}
+  spacing: {x: 90, y: 0}
   rotationDuration: 0.3
   rotationEase: 1
   expandDuration: 0.3
