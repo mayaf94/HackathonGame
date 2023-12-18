@@ -87,7 +87,6 @@ public class Draw : MonoBehaviour
         if (i == 6)
         {
             EndGameGroup.SetActive(true);
-            GameManager.Shared().UpdateProgress();
             EndGame();
         }
         else
@@ -115,7 +114,6 @@ public class Draw : MonoBehaviour
         if(Qnum >= 8 || i == 6)
         {
             EndGameGroup.SetActive(true);
-            GameManager.Shared().UpdateProgress();
             Header.text = "Good Job!";
             //EndGameButtons.SetActive(true);
             //PauseGameButtons.SetActive(false);

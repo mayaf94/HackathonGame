@@ -53,12 +53,8 @@ public class GameManager : MonoBehaviour
         UpdateProgress();
     }
 
-    public void UpdateProgress()
+    private void UpdateProgress()
     {
-        // progressBars = GameObject.FindGameObjectsWithTag("progressBar").;
-        // progressCounter = GameObject.FindWithTag("progressCounter").GetComponent<TextMeshProUGUI>();
-        // if (progressBars != null) // If a progress bar exists in the scene, it will fill it
-        //     progressBars.FillBar(GetFillPercentage());
         foreach (var progressBar in progressBars)
         {
             progressBar.FillBar(GetFillPercentage());
@@ -69,6 +65,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckPlayerPrefs()
     {
+        // PlayerPrefs.SetInt(TRUTH_LIE_USER_SOLVED_LEVEL_TAG, -1);    //TODO: remove - only for check
         // PlayerPrefs.SetInt(CROSSWORD_USER_SOLVED_LEVEL_TAG, -1); //TODO: remove - only for check
         // PlayerPrefs.SetInt(SCORE_TAG, 0); //TODO: remove - only for check
         
@@ -112,10 +109,7 @@ public class GameManager : MonoBehaviour
         float increaseBy = (float) 1/minigameLevels;
         score += increaseBy * MINIGAME_MAX_SCORE;
         PlayerPrefs.SetFloat(SCORE_TAG, score);
-        foreach (var bar in progressBars)
-        {
-            bar.FillBar(GetFillPercentage());
-        }
+        UpdateProgress();
     }
 
     // public void ResetMinigame(string minigameTag)

@@ -101,7 +101,6 @@ public class QuestionsManager : MonoBehaviour
         else
         {
             endGameGroup.SetActive(true);
-            GameManager.Shared().UpdateProgress();
             EndGame();
         }
     }
