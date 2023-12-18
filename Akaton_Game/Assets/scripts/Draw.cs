@@ -87,6 +87,7 @@ public class Draw : MonoBehaviour
         if (i == 6)
         {
             EndGameGroup.SetActive(true);
+            GameManager.Shared().UpdateProgress();
             EndGame();
         }
         else
@@ -114,6 +115,7 @@ public class Draw : MonoBehaviour
         if(Qnum >= 8 || i == 6)
         {
             EndGameGroup.SetActive(true);
+            GameManager.Shared().UpdateProgress();
             Header.text = "Good Job!";
             //EndGameButtons.SetActive(true);
             //PauseGameButtons.SetActive(false);
@@ -131,6 +133,8 @@ public class Draw : MonoBehaviour
 
         if (Level < levelsToLoad.Length - 1)
         {
+            GameManager.Shared().IncreaseScore(Level, levelsToLoad.Length, 
+                GameManager.TRUTH_LIE_USER_SOLVED_LEVEL_TAG);
             Level++;
         }
         else
