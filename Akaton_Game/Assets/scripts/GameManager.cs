@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     private const float MINIGAME_MAX_SCORE = MAX_SCORE / AMOUNT_OF_GAMES;
 
     private ProgressBar progressBar;
+    private TextMeshProUGUI progressCounter;
     private static GameManager self;
     private float score;
 
@@ -49,10 +51,12 @@ public class GameManager : MonoBehaviour
     {
         CheckPlayerPrefs();
         progressBar = GameObject.FindWithTag("progressBar").GetComponent<ProgressBar>();
+        progressCounter = GameObject.FindWithTag("progressCounter").GetComponent<TextMeshProUGUI>();
         if (progressBar != null) // If a progress bar exists in the scene, it will fill it
-        {
             progressBar.FillBar(GetFillPercentage());
-        }
+        if (progressCounter != null) // If a progress counter exists in the scene, it will update it.
+            progressCounter.SetText((int)(GetFillPercentage() * 100) + "%");
+
     }
 
     private void CheckPlayerPrefs()
@@ -83,7 +87,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainScreen");
     }
 
-    public float GetFillPercentage()
+    private float GetFillPercentage()
     {
         return score/MAX_SCORE;
     }

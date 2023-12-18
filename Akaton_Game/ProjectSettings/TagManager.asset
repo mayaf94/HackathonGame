@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - progressBar
+  - progressCounter
   layers:
   - Default
   - TransparentFX

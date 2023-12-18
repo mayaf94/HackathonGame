@@ -12,18 +12,6 @@ public class ProgressBar : MonoBehaviour
     {
         tag = "progressBar";
     }
-    // private static ProgressBar self;
-
-    // private void Awake()
-    // {
-    //     if (self == null)
-    //         self = this;
-    // }
-    
-    // public static ProgressBar Shared()
-    // {
-    //     return self;
-    // }
     
     public void FillBar(float fillAmount)
     {
