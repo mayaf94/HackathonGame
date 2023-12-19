@@ -137,6 +137,8 @@ public class Draw : MonoBehaviour
         }
         else
         {
+            GameManager.Shared().IncreaseScore(Level, levelsToLoad.Length, 
+                GameManager.TRUTH_LIE_USER_SOLVED_LEVEL_TAG);
             Level = 0;
         }
         levelsToLoad[Level].BuildList();
