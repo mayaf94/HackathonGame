@@ -87,6 +87,8 @@ public class MixedManager : MonoBehaviour
     private IEnumerator NextLevelAfterAnimation()
     {
         yield return new WaitWhile(() => inAction);
+        GameManager.Shared().IncreaseScore(indexOfQuestion, db.questions.Count, 
+                                            GameManager.MIXED_USER_SOLVED_LEVEL_TAG);
         indexOfQuestion++;
         if (indexOfQuestion >= db.questions.Count)
         {

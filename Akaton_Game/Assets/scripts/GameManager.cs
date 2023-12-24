@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector] public const string CROSSWORD_USER_SOLVED_LEVEL_TAG = "crosswordLevel";
     [HideInInspector] public const string TRUTH_LIE_USER_SOLVED_LEVEL_TAG = "TruthLieLevel";
+    [HideInInspector] public const string MIXED_USER_SOLVED_LEVEL_TAG = "MixedLevel";
+    
     private const float MAX_SCORE = 100;
-    private const int AMOUNT_OF_GAMES = 2;
+    private const int AMOUNT_OF_GAMES = 3;
     private const string SCORE_TAG = "score";
     private const float MINIGAME_MAX_SCORE = MAX_SCORE / AMOUNT_OF_GAMES;
 
@@ -67,6 +69,7 @@ public class GameManager : MonoBehaviour
     {
         // PlayerPrefs.SetInt(TRUTH_LIE_USER_SOLVED_LEVEL_TAG, -1);    //TODO: remove - only for check
         // PlayerPrefs.SetInt(CROSSWORD_USER_SOLVED_LEVEL_TAG, -1); //TODO: remove - only for check
+        // PlayerPrefs.SetInt(MIXED_USER_SOLVED_LEVEL_TAG, -1); //TODO: remove - only for check
         // PlayerPrefs.SetInt(SCORE_TAG, 0); //TODO: remove - only for check
         
         if (!PlayerPrefs.HasKey(SCORE_TAG))
@@ -79,6 +82,8 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt(CROSSWORD_USER_SOLVED_LEVEL_TAG, -1);
         if (!PlayerPrefs.HasKey(TRUTH_LIE_USER_SOLVED_LEVEL_TAG))
             PlayerPrefs.SetInt(TRUTH_LIE_USER_SOLVED_LEVEL_TAG, -1);
+        if (!PlayerPrefs.HasKey(MIXED_USER_SOLVED_LEVEL_TAG))
+            PlayerPrefs.SetInt(MIXED_USER_SOLVED_LEVEL_TAG, -1);
         score = PlayerPrefs.GetFloat(SCORE_TAG);
     }
 
