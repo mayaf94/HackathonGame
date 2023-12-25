@@ -20,6 +20,7 @@ public class MixedQuestion
     [TextArea(1, 2)]public string answer3;
     [TextArea(1, 2)]public string answer4;
     [SerializeField] private int correctAnswer;
+    [TextArea(1, 2)] public string explanation;
 
     public bool IsAnswerRight(int ans)
     {

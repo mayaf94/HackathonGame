@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 
 public class MixedButtonsAnswers : MonoBehaviour
 {
+
     private TextMeshProUGUI text;
     private Image btnImage;
     private RectTransform rectTransform;
@@ -31,12 +32,13 @@ public class MixedButtonsAnswers : MonoBehaviour
         MixedManager.Shared().AnswerQuestion(i);
     }
 
-    public void ColorAnimation(Color color)
+    public void ColorAnimation(Color color, bool isWrong)
     {
-        btnImage.DOColor(color, 0.5f).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
-        {
-            MixedManager.Shared().inAction = false;
-            
-        });
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(btnImage.DOColor(color, MixedManager.Shared().durationForAnimation));
+        if(isWrong)
+            sequence.AppendInterval(MixedManager.Shared().GetExplanationTime());
+        sequence.Append(btnImage.DOColor(Color.white, MixedManager.Shared().durationForAnimation));
+        sequence.AppendCallback(() => { MixedManager.Shared().inAction = false; });
     }
 }

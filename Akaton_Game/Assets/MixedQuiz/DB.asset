@@ -21,6 +21,7 @@ MonoBehaviour:
     answer3: three
     answer4: four
     correctAnswer: 1
+    explanation: Are U blind?
   - question: What is three?
     haveImage: 0
     image: {fileID: 0}
@@ -31,6 +32,7 @@ MonoBehaviour:
     answer3: three 3
     answer4: four 4
     correctAnswer: 3
+    explanation: 
   - question: What is Lol
     haveImage: 1
     image: {fileID: 21300000, guid: 7fccc4c01f4951a41b64bd884a188448, type: 3}
@@ -39,3 +41,4 @@ MonoBehaviour:
     answer3: LOLOLO
     answer4: idk
     correctAnswer: 2
+    explanation: 
